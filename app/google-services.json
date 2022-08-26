@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "721190701367",
+    "project_id": "tlubook",
+    "storage_bucket": "tlubook.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:721190701367:android:d3ab4d239f9fdb2b2f72b2",
+        "android_client_info": {
+          "package_name": "com.kito.tlubook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "721190701367-90e4ckvd74vqve2c8fnvlscn5okbnlbe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDF3vBIvvrzH1gCjUti__R_xU6G2b4aEhQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "721190701367-90e4ckvd74vqve2c8fnvlscn5okbnlbe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
