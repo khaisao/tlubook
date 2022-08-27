@@ -1,4 +1,4 @@
-package com.kito.tlubook.ui.activity.login.fragment
+package com.kito.tlubook.ui.activity.login
 
 import androidx.lifecycle.ViewModel
 

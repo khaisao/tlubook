@@ -9,5 +9,31 @@
         android:id="@+id/loginFragment"
         android:name="com.kito.tlubook.ui.activity.login.fragment.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_loginWelcomeFragment"
+            app:destination="@id/loginWelcomeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginWelcomeFragment"
+        tools:layout="@layout/fragment_welcome_tlu_book"
+        android:name="com.kito.tlubook.ui.activity.login.fragment.LoginWelcomeFragment"
+        android:label="LoginWelcomeFragment" >
+        <action
+            android:id="@+id/action_loginWelcomeFragment_to_loginCreateNameFragment"
+            app:destination="@id/loginCreateNameFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_login_create_name"
+        android:id="@+id/loginCreateNameFragment"
+        android:name="com.kito.tlubook.ui.activity.login.fragment.LoginCreateNameFragment"
+        android:label="LoginCreateNameFragment" />
 </navigation>
