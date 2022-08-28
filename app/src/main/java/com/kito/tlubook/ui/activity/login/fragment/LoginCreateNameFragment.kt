@@ -20,7 +20,7 @@ class LoginCreateNameFragment : BaseBindingFragment<FragmentLoginCreateNameBindi
                 findNavController().popBackStack()
             }
             tvNext.setOnClickListener {
-                findNavController().navigate(LoginCreateNameFragmentDirections.actionLoginCreateNameFragmentToLoginCreatePhoneNumberFragment())
+                findNavController().navigate(LoginCreateNameFragmentDirections.actionLoginCreateNameFragmentToLoginEmailFragment())
             }
 
         }

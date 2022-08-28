@@ -32,7 +32,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Password"
+                android:text="Email"
                 android:textColor="@color/black"
                 android:textStyle=""
                 app:layout_constraintBottom_toBottomOf="@id/iv_back"
@@ -59,16 +59,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/sfpro_regular"
-                android:text="Enter the code we sent to"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-            <TextView
-                android:id="@+id/tv_phone_number"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:fontFamily="@font/sfpro_semi_bold"
-                android:text="7848674678"
+                android:text="Enter your email"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -77,26 +69,45 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/sfpro_regular"
-                android:text="We sent 6 digit code to your email address."
+                android:text="Enter the email where you can be reached"
+                android:textColor="#999999"
+                android:textSize="12sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sfpro_regular"
+                android:text="No one else will see this on your profile"
                 android:textColor="#999999"
                 android:textSize="12sp" />
         </LinearLayout>
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="80dp"
+            android:gravity="center"
+            android:layout_marginHorizontal="40dp"
             android:layout_marginTop="50dp">
 
-            <EditText
-                android:id="@+id/edt_otp"
-                android:gravity="center"
-                android:inputType="number"
-                android:hint="OTP Code"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
 
-        </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edt_email"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                app:boxBackgroundColor="@color/white">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sfpro_regular"
+                    android:hint="Email"
+                    android:paddingStart="0dp"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <TextView
             android:id="@+id/tv_next"
@@ -108,7 +119,7 @@
             android:fontFamily="@font/sfpro_bold"
             android:paddingHorizontal="130dp"
             android:paddingVertical="10dp"
-            android:text="Continue"
+            android:text="Next"
             android:textColor="@color/white"
             android:textSize="14sp" />
 

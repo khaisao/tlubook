@@ -5,13 +5,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.PhoneAuthProvider
-import com.kito.tlubook.data.login.user.UserRepository
+import com.kito.tlubook.data.login.user.AuthRepository
+import com.kito.tlubook.data.model.User
 import com.kito.tlubook.util.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor (
-    private val userRepository: UserRepository
+    private val authRepository: AuthRepository
 ) : ViewModel() {
 //    @Inject
 //    lateinit var db: FirebaseFirestore
@@ -22,21 +23,57 @@ class LoginViewModel @Inject constructor (
 //    @Inject
 //    lateinit var currentUser: MutableLiveData<User>
 
-    var phoneNumber =""
-    var verifyID=""
+    var email =""
+    var password=""
+    private val _login = MutableLiveData<UiState<String>>()
+    val login: LiveData<UiState<String>>
+        get() = _login
 
-    fun sendOTPCode(numberPhone: String, activity: Activity, callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks){
-        userRepository.sendOtp(numberPhone,activity,callbacks){
+    private val _forgotPassword = MutableLiveData<UiState<String>>()
+    val forgotPassword: LiveData<UiState<String>>
+        get() = _forgotPassword
+    private val _register = MutableLiveData<UiState<String>>()
+    val register: LiveData<UiState<String>>
+        get() = _register
+    fun register(
+        email: String,
+        password: String,
+        user: User
+    ) {
+        _register.value = UiState.Loading
+        authRepository.registerUser(
+            email = email,
+            password = password,
+            user = user
+        ) { _register.value = it }
+    }
+
+    fun login(
+        email: String,
+        password: String
+    ) {
+        _login.value = UiState.Loading
+        authRepository.loginUser(
+            email,
+            password
+        ){
+            _login.value = it
         }
     }
 
-    private val _loginState = MutableLiveData<UiState<Boolean>>()
-    val loginState: LiveData<UiState<Boolean>>
-        get() = _loginState
-    fun verifyOTP(verifyId:String, codeOTP:String){
-        userRepository.verifyOTP(verifyId,codeOTP){
-            _loginState.value = it
+    fun forgotPassword(email: String) {
+        _forgotPassword.value = UiState.Loading
+        authRepository.forgotPassword(email){
+            _forgotPassword.value = it
         }
+    }
+
+    fun logout(result: () -> Unit){
+        authRepository.logout(result)
+    }
+
+    fun getSession(result: (User?) -> Unit){
+        authRepository.getSession(result)
     }
 
 }

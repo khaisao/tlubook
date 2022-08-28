@@ -21,80 +21,81 @@
             android:src="@drawable/login_first_time_wallpaper" />
 
         <EditText
-            android:id="@+id/username"
+            android:id="@+id/edt_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="35dp"
-            android:hint="Phone"
-            android:paddingBottom="20dp"
             android:backgroundTint="#999999"
+            android:hint="Email"
+            android:paddingBottom="20dp"
             android:textColor="@color/black"
             android:textColorHint="#999999"
             android:textSize="12sp" />
 
         <EditText
-            android:id="@+id/password"
-            android:backgroundTint="#999999"
-            android:paddingBottom="20dp"
+            android:id="@+id/edt_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="35dp"
+            android:backgroundTint="#999999"
             android:hint="Password"
+            android:paddingBottom="20dp"
             android:textColor="@color/black"
             android:textColorHint="#999999"
             android:textSize="12sp" />
 
         <TextView
-            android:fontFamily="sans-serif-black"
-            android:paddingVertical="10dp"
-            android:textColor="@color/white"
-            android:gravity="center_horizontal"
+            android:id="@+id/tv_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginStart="35dp"
             android:layout_marginTop="20dp"
-            android:textSize="16sp"
             android:layout_marginEnd="35dp"
             android:background="@drawable/bg_btn_blue_gradient"
-            android:layout_gravity="center_horizontal"
-            android:text="Log In"
             android:elevation="3dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <TextView
             android:fontFamily="sans-serif-black"
             android:gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:textSize="16sp"
-            android:textColor="#384CFF"
-            android:layout_gravity="center_horizontal"
-            android:text="Forgot Password?"
+            android:paddingVertical="10dp"
+            android:text="Log In"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center_horizontal"
+            android:text="Forgot Password?"
+            android:textColor="#384CFF"
+            android:textSize="16sp" />
 
         <ImageView
-            android:layout_marginTop="50dp"
-            android:layout_marginStart="35dp"
-            android:layout_marginEnd="35dp"
-            android:src="@drawable/or"
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="20dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="35dp"
+            android:src="@drawable/or" />
 
         <TextView
             android:id="@+id/tv_create_account"
-            android:layout_marginTop="50dp"
-            android:textSize="14sp"
-            android:background="@drawable/border_btn_blue_gradient"
-            android:layout_gravity="center_horizontal"
-            android:textColor="@color/black"
-            android:text="Create new Facebook account"
-            android:paddingVertical="8dp"
-            android:paddingHorizontal="15dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/border_btn_blue_gradient"
+            android:paddingHorizontal="15dp"
+            android:paddingVertical="8dp"
+            android:text="Create new Facebook account"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
     </LinearLayout>
 </layout>

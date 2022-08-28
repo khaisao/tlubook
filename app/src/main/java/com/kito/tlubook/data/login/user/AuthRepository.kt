@@ -1,0 +1,18 @@
+package com.kito.tlubook.data.login.user
+
+import android.app.Activity
+import android.content.Context
+import com.google.firebase.auth.PhoneAuthProvider
+import com.kito.tlubook.data.model.User
+import com.kito.tlubook.util.UiState
+
+interface AuthRepository {
+    fun registerUser(email: String, password: String, user: User, result: (UiState<String>) -> Unit)
+    fun updateUserInfo(user: User, result: (UiState<String>) -> Unit)
+    fun loginUser(email: String, password: String, result: (UiState<String>) -> Unit)
+    fun forgotPassword(email: String, result: (UiState<String>) -> Unit)
+    fun logout(result: () -> Unit)
+    fun storeSession(id: String, result: (User?) -> Unit)
+    fun getSession(result: (User?) -> Unit)
+
+}

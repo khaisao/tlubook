@@ -37,8 +37,8 @@
         android:name="com.kito.tlubook.ui.activity.login.fragment.LoginCreateNameFragment"
         android:label="LoginCreateNameFragment" >
         <action
-            android:id="@+id/action_loginCreateNameFragment_to_loginCreatePhoneNumberFragment"
-            app:destination="@id/loginCreatePhoneNumberFragment"
+            android:id="@+id/action_loginCreateNameFragment_to_loginEmailFragment"
+            app:destination="@id/loginEmailFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
@@ -46,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginCreatePasswordFragment"
-        android:name="com.kito.tlubook.ui.activity.login.fragment.LoginCreatePasswordFragment"
+        android:name="com.kito.tlubook.ui.activity.login.fragment.LoginPasswordFragment"
         android:label="LoginCreatePasswordFragment" >
         <action
             android:id="@+id/action_loginCreatePasswordFragment_to_loginFinishFragment"
@@ -57,31 +57,19 @@
             app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
-        android:id="@+id/loginCreatePhoneNumberFragment"
-        android:name="com.kito.tlubook.ui.activity.login.fragment.LoginCreatePhoneNumberFragment"
-        android:label="LoginCreatePhoneNumberFragment" >
-        <action
-            android:id="@+id/action_loginCreatePhoneNumberFragment_to_loginOTPFragment"
-            app:destination="@id/loginOTPFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-    </fragment>
-    <fragment
         android:id="@+id/loginFinishFragment"
         android:name="com.kito.tlubook.ui.activity.login.fragment.LoginFinishFragment"
         android:label="LoginFinishFragment" />
     <fragment
-        android:id="@+id/loginOTPFragment"
-        android:name="com.kito.tlubook.ui.activity.login.fragment.LoginOTPFragment"
-        android:label="LoginOTPFragment" >
+        android:id="@+id/loginEmailFragment"
+        android:name="com.kito.tlubook.ui.activity.login.fragment.LoginEmailFragment"
+        android:label="LoginEmailFragment" >
         <action
-            android:id="@+id/action_loginOTPFragment_to_loginCreatePasswordFragment"
+            android:id="@+id/action_loginEmailFragment_to_loginCreatePasswordFragment"
             app:destination="@id/loginCreatePasswordFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_left" />
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 </navigation>
