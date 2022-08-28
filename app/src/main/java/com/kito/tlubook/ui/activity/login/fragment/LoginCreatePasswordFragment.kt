@@ -8,11 +8,13 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.kito.tlubook.R
 import com.kito.tlubook.databinding.FragmentLoginCreateNameBinding
+import com.kito.tlubook.databinding.FragmentLoginCreatePasswordBinding
 import com.kito.tlubook.ui.base.BaseBindingFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-
-class LoginCreateNameFragment : BaseBindingFragment<FragmentLoginCreateNameBinding>() {
-    override fun getLayoutId(): Int =R.layout.fragment_login_create_name
+@AndroidEntryPoint
+class LoginCreatePasswordFragment : BaseBindingFragment<FragmentLoginCreatePasswordBinding>() {
+    override fun getLayoutId(): Int =R.layout.fragment_login_create_password
     override fun addEvent() {
         super.addEvent()
         with(binding){
@@ -20,9 +22,8 @@ class LoginCreateNameFragment : BaseBindingFragment<FragmentLoginCreateNameBindi
                 findNavController().popBackStack()
             }
             tvNext.setOnClickListener {
-                findNavController().navigate(LoginCreateNameFragmentDirections.actionLoginCreateNameFragmentToLoginCreatePhoneNumberFragment())
+                findNavController().navigate(LoginCreatePasswordFragmentDirections.actionLoginCreatePasswordFragmentToLoginFinishFragment())
             }
-
         }
     }
 

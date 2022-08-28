@@ -4,7 +4,9 @@ import androidx.navigation.fragment.findNavController
 import com.kito.tlubook.R
 import com.kito.tlubook.databinding.FragmentLoginBinding
 import com.kito.tlubook.ui.base.BaseBindingFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginFragment : BaseBindingFragment<FragmentLoginBinding>() {
     override fun getLayoutId(): Int = R.layout.fragment_login
 

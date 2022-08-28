@@ -6,7 +6,9 @@ import androidx.navigation.fragment.findNavController
 import com.kito.tlubook.R
 import com.kito.tlubook.databinding.ActivityLoginBinding
 import com.kito.tlubook.ui.base.BaseBindingActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginActivity : BaseBindingActivity<ActivityLoginBinding>() {
     override fun getLayoutId(): Int =R.layout.activity_login
     private lateinit var navController: NavController
