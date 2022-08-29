@@ -8,8 +8,12 @@
     <fragment
         android:id="@+id/homeFragment"
         tools:layout="@layout/fragment_home"
-        android:name="com.kito.tlubook.ui.activity.home.fragment.HomeFragment"
-        android:label="HomeFragment" />
+        android:name="com.kito.tlubook.ui.activity.home.fragment.home.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailPostFragment"
+            app:destination="@id/detailPostFragment" />
+    </fragment>
     <fragment
         android:id="@+id/friendsFragment"
         tools:layout="@layout/fragment_friends"
@@ -30,4 +34,9 @@
         tools:layout="@layout/fragment_menu"
         android:name="com.kito.tlubook.ui.activity.home.fragment.MenuFragment"
         android:label="MenuFragment" />
+    <fragment
+        android:id="@+id/detailPostFragment"
+        tools:layout="@layout/fragment_detail_post"
+        android:name="com.kito.tlubook.ui.activity.home.fragment.home.DetailPostFragment"
+        android:label="DetailPostFragment" />
 </navigation>

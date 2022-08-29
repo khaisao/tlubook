@@ -8,7 +8,7 @@ import com.kito.tlubook.R
 import com.kito.tlubook.databinding.ActivityHomeBinding
 import com.kito.tlubook.ui.base.BaseBindingActivity
 
-class HomeActivity : BaseBindingActivity<ActivityHomeBinding>() {
+class MainActivity : BaseBindingActivity<ActivityHomeBinding>() {
     private lateinit var navController: NavController
 
     override fun getLayoutId(): Int = R.layout.activity_home

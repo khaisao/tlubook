@@ -6,7 +6,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.kito.tlubook.R
 import com.kito.tlubook.databinding.FragmentLoginBinding
-import com.kito.tlubook.ui.activity.home.HomeActivity
+import com.kito.tlubook.ui.activity.home.MainActivity
 import com.kito.tlubook.ui.activity.login.LoginViewModel
 import com.kito.tlubook.ui.base.BaseBindingFragment
 import com.kito.tlubook.util.UiState
@@ -55,7 +55,7 @@ class LoginFragment : BaseBindingFragment<FragmentLoginBinding>() {
         super.onStart()
         viewModel.getSession { user ->
             if (user != null){
-                val intent = Intent(requireContext(),HomeActivity::class.java)
+                val intent = Intent(requireContext(),MainActivity::class.java)
                 startActivity(intent)
                 requireActivity().finish()
             }

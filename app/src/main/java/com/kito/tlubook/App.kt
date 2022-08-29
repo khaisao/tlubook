@@ -1,4 +1,4 @@
-package com.kito.tlubook.ui
+package com.kito.tlubook
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
