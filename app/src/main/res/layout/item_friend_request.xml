@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cv_avatar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="13dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/default_avatar"
+            app:cardCornerRadius="10dp" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_friend_request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:text="Kiran Pawar"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/cv_avatar"
+        app:layout_constraintTop_toTopOf="@id/cv_avatar" />
+
+    <TextView
+        android:id="@+id/tv_time_request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="20dp"
+        android:text="9w"
+        android:textColor="#999999"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/cv_avatar" />
+
+    <TextView
+        android:id="@+id/tv_mutual_friend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:text="20 mutual friend"
+        android:textColor="#999999"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/cv_avatar"
+        app:layout_constraintTop_toBottomOf="@id/tv_friend_request" />
+
+    <TextView
+        android:id="@+id/tv_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_btn_blue_gradient_friend_tab"
+        android:fontFamily="@font/sfpro_medium"
+        android:paddingHorizontal="27dp"
+        android:paddingVertical="8dp"
+        android:text="Confirm"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/cv_avatar"
+        app:layout_constraintStart_toStartOf="@id/tv_mutual_friend" />
+
+    <TextView
+        android:id="@+id/tv_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:fontFamily="@font/sfpro_medium"
+        android:paddingHorizontal="27dp"
+        android:paddingVertical="8dp"
+        android:text="Delete"
+        android:textColor="#555555"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/cv_avatar"
+        app:layout_constraintStart_toEndOf="@id/tv_confirm" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
