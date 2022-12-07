@@ -3,13 +3,16 @@ package com.kito.tlubook.di
 import android.content.SharedPreferences
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.StorageReference
 import com.google.gson.Gson
-import com.kito.tlubook.data.login.user.AuthRepository
-import com.kito.tlubook.data.login.user.AuthRepositoryImp
+import com.kito.tlubook.domain.repository.AuthRepository
+import com.kito.tlubook.data.AuthRepositoryImp
 import com.kito.tlubook.data.model.User
-import com.kito.tlubook.util.mutableLiveDataOf
+import com.kito.tlubook.data.PostRepositoryImp
+import com.kito.tlubook.core.mutableLiveDataOf
+import com.kito.tlubook.domain.repository.PostRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,9 +30,16 @@ object RepositoryModule {
         storageReference:StorageReference,
         appPreferences: SharedPreferences,
         gson: Gson
-    ): AuthRepository{
+    ): AuthRepository {
         return AuthRepositoryImp(auth,database,appPreferences,gson)
     }
+
+    @Provides
+    fun providePostRepository(
+        database: FirebaseFirestore,
+        storageReference:StorageReference,
+        postRef: CollectionReference
+    ): PostRepository = PostRepositoryImp(database,storageReference,postRef)
 
     @Provides
     @Singleton

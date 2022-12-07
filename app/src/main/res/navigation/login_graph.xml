@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.kito.tlubook.ui.activity.login.fragment.LoginFragment"
+        android:name="com.kito.tlubook.presentation.login.fragment.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -21,7 +21,7 @@
     <fragment
         android:id="@+id/loginWelcomeFragment"
         tools:layout="@layout/fragment_welcome_tlu_book"
-        android:name="com.kito.tlubook.ui.activity.login.fragment.LoginWelcomeFragment"
+        android:name="com.kito.tlubook.presentation.login.fragment.LoginWelcomeFragment"
         android:label="LoginWelcomeFragment" >
         <action
             android:id="@+id/action_loginWelcomeFragment_to_loginCreateNameFragment"
@@ -34,7 +34,7 @@
     <fragment
         tools:layout="@layout/fragment_login_create_name"
         android:id="@+id/loginCreateNameFragment"
-        android:name="com.kito.tlubook.ui.activity.login.fragment.LoginCreateNameFragment"
+        android:name="com.kito.tlubook.presentation.login.fragment.LoginCreateNameFragment"
         android:label="LoginCreateNameFragment" >
         <action
             android:id="@+id/action_loginCreateNameFragment_to_loginEmailFragment"
@@ -46,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginCreatePasswordFragment"
-        android:name="com.kito.tlubook.ui.activity.login.fragment.LoginPasswordFragment"
+        android:name="com.kito.tlubook.presentation.login.fragment.LoginPasswordFragment"
         android:label="LoginCreatePasswordFragment" >
         <action
             android:id="@+id/action_loginCreatePasswordFragment_to_loginFinishFragment"
@@ -58,11 +58,11 @@
     </fragment>
     <fragment
         android:id="@+id/loginFinishFragment"
-        android:name="com.kito.tlubook.ui.activity.login.fragment.LoginFinishFragment"
+        android:name="com.kito.tlubook.presentation.login.fragment.LoginFinishFragment"
         android:label="LoginFinishFragment" />
     <fragment
         android:id="@+id/loginEmailFragment"
-        android:name="com.kito.tlubook.ui.activity.login.fragment.LoginEmailFragment"
+        android:name="com.kito.tlubook.presentation.login.fragment.LoginEmailFragment"
         android:label="LoginEmailFragment" >
         <action
             android:id="@+id/action_loginEmailFragment_to_loginCreatePasswordFragment"

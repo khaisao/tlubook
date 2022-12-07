@@ -2,12 +2,11 @@ package com.kito.tlubook.di
 
 
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import com.kito.tlubook.util.ROOT_DIRECTORY
+import com.kito.tlubook.core.FireStoreCollection
+import com.kito.tlubook.core.ROOT_DIRECTORY
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,8 +30,13 @@ object FirebaseModule {
     }
 
     @Provides
+    fun providePostsRef(
+        db: FirebaseFirestore
+    ) = db.collection(FireStoreCollection.POST)
+
+    @Provides
     @Singleton
-    fun provideFirebaseAuthInstance(): FirebaseAuth{
+    fun provideFirebaseAuthInstance(): FirebaseAuth {
         return FirebaseAuth.getInstance()
     }
 
@@ -41,7 +45,6 @@ object FirebaseModule {
     fun provideFirebaseStorageInstance(): StorageReference {
         return FirebaseStorage.getInstance().getReference(ROOT_DIRECTORY)
     }
-
 
 
 }
