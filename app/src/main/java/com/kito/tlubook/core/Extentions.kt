@@ -130,8 +130,10 @@ fun Context.isHaveReadWritePermission(): Boolean {
 }
 
 
-
-fun Context.getDurationBreakdown(time: Long, mode: Int): String {
+enum class MODE_TIME{
+    LONG,SHORT
+}
+fun Context.getDurationBreakdown(time: Long, mode: MODE_TIME): String {
     val zero: Long = 0
     var millis = time
     if (millis <= 0) {
@@ -147,7 +149,7 @@ fun Context.getDurationBreakdown(time: Long, mode: Int): String {
     val sb = StringBuilder(64)
     if (days != zero) {
         sb.append(days)
-        if (mode == 0) {
+        if (mode == MODE_TIME.SHORT) {
             sb.append("d")
         } else {
             sb.append(" day")
@@ -157,7 +159,7 @@ fun Context.getDurationBreakdown(time: Long, mode: Int): String {
     }
     if (hours != zero) {
         sb.append(hours)
-        if (mode == 0) {
+        if (mode == MODE_TIME.SHORT) {
             sb.append("h")
         } else {
             sb.append(" hour")
@@ -167,7 +169,7 @@ fun Context.getDurationBreakdown(time: Long, mode: Int): String {
     }
     if (minutes != zero) {
         sb.append(minutes)
-        if (mode == 0) {
+        if (mode == MODE_TIME.SHORT) {
             sb.append("m")
         } else {
             sb.append(" minute")

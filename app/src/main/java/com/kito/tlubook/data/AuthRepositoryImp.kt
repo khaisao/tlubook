@@ -12,6 +12,9 @@ import com.kito.tlubook.core.FireStoreCollection
 import com.kito.tlubook.core.SharedPrefConstants
 import com.kito.tlubook.core.UiState
 import com.kito.tlubook.domain.repository.AuthRepository
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
 
 class AuthRepositoryImp(
     val auth: FirebaseAuth,
@@ -154,6 +157,22 @@ class AuthRepositoryImp(
         } else {
             val user = gson.fromJson(user_str, User::class.java)
             result.invoke(user)
+        }
+    }
+
+    override fun getSnapshotCurrentUser(userId: String) = callbackFlow {
+        val snapshotListener = database.collection(FireStoreCollection.USER).document("userId")
+            .addSnapshotListener { snapshot, e ->
+                val userResponse = if (snapshot != null) {
+                    val user = snapshot.toObject(User::class.java)
+                    UiState.Success(user)
+                } else {
+                    UiState.Failure(e.toString())
+                }
+                trySend(userResponse)
+            }
+        awaitClose {
+            snapshotListener.remove()
         }
     }
 

@@ -38,5 +38,10 @@
         android:id="@+id/detailPostFragment"
         tools:layout="@layout/fragment_detail_post"
         android:name="com.kito.tlubook.presentation.home.fragment.home.DetailPostFragment"
-        android:label="DetailPostFragment" />
+        android:label="DetailPostFragment" >
+
+        <argument
+            android:name="post"
+            app:argType="com.kito.tlubook.domain.model.Post" />
+    </fragment>
 </navigation>

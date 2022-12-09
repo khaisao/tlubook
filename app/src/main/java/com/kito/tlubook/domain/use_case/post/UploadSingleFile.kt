@@ -1,4 +1,4 @@
-package com.kito.tlubook.domain.use_case
+package com.kito.tlubook.domain.use_case.post
 
 import android.net.Uri
 import com.kito.tlubook.domain.repository.PostRepository

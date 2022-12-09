@@ -38,11 +38,10 @@ object RepositoryModule {
     fun providePostRepository(
         database: FirebaseFirestore,
         storageReference:StorageReference,
-        postRef: CollectionReference
-    ): PostRepository = PostRepositoryImp(database,storageReference,postRef)
 
-    @Provides
-    @Singleton
-    fun provideCurrentUser(): MutableLiveData<User> = mutableLiveDataOf()
+
+    ): PostRepository = PostRepositoryImp(database,storageReference)
+
+
 
 }

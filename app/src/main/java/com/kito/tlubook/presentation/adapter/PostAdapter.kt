@@ -5,10 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.kito.tlubook.core.*
 import com.kito.tlubook.databinding.ItemPostBinding
-import com.kito.tlubook.core.gone
-import com.kito.tlubook.core.isVisible
-import com.kito.tlubook.core.visible
 import com.kito.tlubook.domain.model.Post
 import com.kito.tlubook.presentation.adapter.diffutil.PostDiffCallBack
 
@@ -34,17 +32,20 @@ class PostAdapter(
     inner class ViewHolder(private val binding: ItemPostBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Post) {
-            with(binding){
+            with(binding) {
+                tvTimeUpload.text = binding.root.context.getDurationBreakdown(
+                    System.currentTimeMillis() - item.createAt,
+                    MODE_TIME.SHORT
+                )
                 tvTitle.text = item.caption
                 Glide.with(binding.root.context).load(item.linkImage).into(ivMainPost)
                 llLike.setOnClickListener {
-                    if(ivLike.isVisible()){
+                    if (ivLike.isVisible()) {
                         ivLike.gone()
                         ivUnlike.visible()
-                    }
-                    else{
+                    } else {
                         ivLike.visible()
-                        ivUnlike.gone ()
+                        ivUnlike.gone()
                     }
                 }
                 llComment.setOnClickListener {
@@ -53,6 +54,5 @@ class PostAdapter(
             }
         }
     }
-
 
 }

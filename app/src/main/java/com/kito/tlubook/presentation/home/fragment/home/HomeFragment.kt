@@ -6,6 +6,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
 import com.kito.tlubook.R
 import com.kito.tlubook.core.UiState
 import com.kito.tlubook.core.base.BaseBindingFragment
@@ -16,12 +17,15 @@ import com.kito.tlubook.presentation.createpost.CreatePostActivity
 import com.kito.tlubook.presentation.createpost.PostViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : BaseBindingFragment<FragmentHomeBinding>() {
+    @Inject
+    lateinit var firebaseAuth: FirebaseAuth
     private val adapter: PostAdapter by lazy {
         PostAdapter(onCommentClick = {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailPostFragment())
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailPostFragment(it))
         })
     }
 
@@ -38,10 +42,12 @@ class HomeFragment : BaseBindingFragment<FragmentHomeBinding>() {
             lifecycleScope.launch {
                 postsResponse.collect { state ->
                     when (state) {
-
-                        is UiState.Success ->{
-                            Log.d("lkjaghlkajrhljkaerh", "setUpViews: ${state.data}")
+                        is UiState.Success -> {
+                            binding.rv.hideShimmerAdapter()
                             adapter.submitList(state.data)
+                        }
+                        else -> {
+                            binding.rv.showShimmerAdapter()
                         }
                     }
                 }
@@ -55,6 +61,4 @@ class HomeFragment : BaseBindingFragment<FragmentHomeBinding>() {
             startActivity(intent)
         }
     }
-
-
 }

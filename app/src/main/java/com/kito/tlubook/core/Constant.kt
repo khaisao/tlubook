@@ -1,15 +1,16 @@
 package com.kito.tlubook.core
 //firebase
 
-val ROOT_DIRECTORY = "app"
+const val ROOT_DIRECTORY = "app"
 object FireStoreCollection{
-    val USER = "user"
-    val POST = "post"
+    const val USER = "user"
+    const val POST = "post"
+    const val COMMENT = "comment"
 }
 
 object SharedPrefConstants {
-    val LOCAL_SHARED_PREF = "local_shared_pref"
-    val USER_SESSION = "user_session"
+    const val LOCAL_SHARED_PREF = "local_shared_pref"
+    const val USER_SESSION = "user_session"
 }
 
 

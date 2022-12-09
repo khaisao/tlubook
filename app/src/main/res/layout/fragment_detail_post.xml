@@ -92,15 +92,18 @@
             app:layout_constraintBottom_toBottomOf="@id/iv_avatar_post"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/iv_avatar_post" />
+
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_marginTop="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_avatar_post"
-            android:layout_height="0dp">
+            app:layout_constraintBottom_toTopOf="@id/cl_input_comment"
+            app:layout_constraintTop_toBottomOf="@id/iv_avatar_post">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:id="@+id/tv_title"
                     android:layout_width="wrap_content"
@@ -112,8 +115,7 @@
                     android:textColor="@color/black"
                     android:textSize="12sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                     />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/iv_main_post"
@@ -282,17 +284,58 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv"
-                    tools:listitem="@layout/item_comment"
-                    android:layout_marginTop="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintTop_toBottomOf="@id/line_bottom"
-
-                    />
+                    tools:listitem="@layout/item_comment" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
         </androidx.core.widget.NestedScrollView>
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_input_comment"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:layout_constraintBottom_toBottomOf="parent">
 
+            <ImageView
+                android:id="@+id/iv_choose_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:src="@drawable/camera"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/edt_comment_content"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="7dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/bg_comment_edt"
+                android:fontFamily="@font/sfpro_regular"
+                android:hint="Write comment..."
+                android:paddingStart="10dp"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/iv_send"
+                app:layout_constraintStart_toEndOf="@id/iv_choose_image" />
+
+            <ImageView
+                android:id="@+id/iv_send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:src="@drawable/send"
+                app:layout_constraintBottom_toBottomOf="@id/edt_comment_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/edt_comment_content" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

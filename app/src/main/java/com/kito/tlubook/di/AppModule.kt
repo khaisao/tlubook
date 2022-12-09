@@ -4,11 +4,11 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
 import com.kito.tlubook.core.SharedPrefConstants
+import com.kito.tlubook.domain.repository.AuthRepository
 import com.kito.tlubook.domain.repository.PostRepository
-import com.kito.tlubook.domain.use_case.AddPost
-import com.kito.tlubook.domain.use_case.GetPosts
-import com.kito.tlubook.domain.use_case.UploadSingleFile
-import com.kito.tlubook.domain.use_case.UseCases
+import com.kito.tlubook.domain.use_case.*
+import com.kito.tlubook.domain.use_case.auth.GetSnapshotUser
+import com.kito.tlubook.domain.use_case.post.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -36,12 +36,24 @@ object AppModule {
     }
 
     @Provides
-    fun provideUseCases(
+    @Singleton
+    fun providePostUseCases(
         repo: PostRepository
-    ) = UseCases(
-        getPosts = GetPosts(repo),
+    ) = PostUseCase(
+        getSnapshotPosts = GetSnapshotPosts(repo),
+        getSnapshotComments = GetSnapshotComments(repo = repo),
         addPost = AddPost(repo),
-        uploadSingleFile = UploadSingleFile(repo)
+        updatePost = UpdatePost(repo = repo),
+        deletePost = DeletePost(repo),
+        uploadSingleFile = UploadSingleFile(repo),
+        addComment = AddComment(repo),
     )
 
+    @Provides
+    @Singleton
+    fun provideAuthUseCases(
+        repo: AuthRepository
+    ) = AuthUseCase(
+        getSnapshotUser = GetSnapshotUser(repo)
+    )
 }

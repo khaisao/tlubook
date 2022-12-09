@@ -13,7 +13,6 @@ data class Post(
     var linkVideo: String = "",
     var createAt: Long = 0,
     var listUserLike: ArrayList<String> = arrayListOf(),
-//    var listComment: ArrayList<Comment> = arrayListOf(),
     var likeCount: Int = 0,
     var commentCount: Int = 0,
     var userId: String = "",

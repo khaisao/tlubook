@@ -17,12 +17,6 @@ import javax.inject.Singleton
 @Module
 object FirebaseModule {
 
-//    @Provides
-//    @Singleton
-//    fun provideFirebaseDatabaseInstance(): FirebaseDatabase{
-//        return FirebaseDatabase.getInstance()
-//    }
-
     @Provides
     @Singleton
     fun provideFireStoreInstance(): FirebaseFirestore {
@@ -33,6 +27,11 @@ object FirebaseModule {
     fun providePostsRef(
         db: FirebaseFirestore
     ) = db.collection(FireStoreCollection.POST)
+
+    @Provides
+    fun provideCommentsRef(
+        db: FirebaseFirestore
+    ) = db.collection(FireStoreCollection.COMMENT)
 
     @Provides
     @Singleton

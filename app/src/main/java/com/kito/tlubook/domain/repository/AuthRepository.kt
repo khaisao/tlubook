@@ -2,6 +2,7 @@ package com.kito.tlubook.domain.repository
 
 import com.kito.tlubook.data.model.User
 import com.kito.tlubook.core.UiState
+import kotlinx.coroutines.flow.Flow
 
 interface AuthRepository {
     fun registerUser(email: String, password: String, user: User, result: (UiState<String>) -> Unit)
@@ -11,4 +12,5 @@ interface AuthRepository {
     fun logout(result: () -> Unit)
     fun storeSession(id: String, result: (User?) -> Unit)
     fun getSession(result: (User?) -> Unit)
+    fun getSnapshotCurrentUser(userId: String): Flow<UiState<User?>>
 }
